@@ -1,5 +1,5 @@
 ---
-templateKey: blog-post
+templateKey: sports-post
 title: 2020 Basketball Schedules Now Available!
 date: 2020-01-06T15:04:10.000Z
 description: >-

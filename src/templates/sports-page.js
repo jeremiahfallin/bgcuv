@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
-import NewsRoll from "../components/NewsRoll";
+import SportsPostsRoll from "../components/SportsPostsRoll";
 
 export const SportsPageTemplate = ({
   image,
@@ -59,7 +59,7 @@ export const SportsPageTemplate = ({
                     <h3 className="has-text-weight-semibold is-size-2">
                       Latest Sports News
                     </h3>
-                    <NewsRoll tag={"sports"} />
+                    <SportsPostsRoll />
                   </div>
                   <div className="content">
                     <PostContent content={content} />
@@ -82,7 +82,6 @@ SportsPageTemplate.propTypes = {
 
 const SportsPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-  console.log(frontmatter);
 
   return (
     <Layout>

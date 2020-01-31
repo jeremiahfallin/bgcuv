@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import NewsRoll from "../components/NewsRoll";
+import SportsPostsRoll from "../components/SportsPostsRoll";
 
 export const IndexPageTemplate = ({
   image,
@@ -94,7 +95,7 @@ export const IndexPageTemplate = ({
                   <h3 className="has-text-weight-semibold is-size-2">Events</h3>
                   <NewsRoll tag={"events"} />
                   <h3 className="has-text-weight-semibold is-size-2">Sports</h3>
-                  <NewsRoll tag={"sports"} />
+                  <SportsPostsRoll />
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
                       Read more
