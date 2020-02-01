@@ -4,12 +4,13 @@ import { SportsPostTemplate } from "../../templates/sports-post";
 
 const SportsPostPreview = ({ entry, widgetFor }) => {
   const tags = entry.getIn(["data", "tags"]);
-  console.log(entry);
+  const files = entry.getIn(["data", "files"]);
+  console.log(files);
   return (
     <SportsPostTemplate
       content={widgetFor("body")}
       description={entry.getIn(["data", "description"])}
-      files={entry.getIn(["data", "files"])}
+      files={files && files.toJS()}
       tags={tags && tags.toJS()}
       title={entry.getIn(["data", "title"])}
     />

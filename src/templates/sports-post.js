@@ -16,7 +16,7 @@ export const SportsPostTemplate = ({
   helmet
 }) => {
   const PostContent = contentComponent || Content;
-  console.log(files);
+
   return (
     <section className="section">
       {helmet || ""}
@@ -28,13 +28,14 @@ export const SportsPostTemplate = ({
             </h1>
             <p>{description}</p>
             <ul>
-              {files.map(file => {
-                return (
-                  <li>
-                    <Link to={file.absolutePath}>{file.text}</Link>
-                  </li>
-                );
-              })}
+              {files &&
+                files.map(file => {
+                  return (
+                    <li key={file.text}>
+                      <Link to={file.file.absolutePath}>{file.text}</Link>
+                    </li>
+                  );
+                })}
             </ul>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -67,7 +68,6 @@ SportsPostTemplate.propTypes = {
 
 const SportsPost = ({ data }) => {
   const { markdownRemark: post } = data;
-  console.log(post);
 
   return (
     <Layout>
