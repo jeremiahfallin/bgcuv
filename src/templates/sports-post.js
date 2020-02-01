@@ -27,9 +27,6 @@ export const SportsPostTemplate = ({
               {title}
             </h1>
             <p>{description}</p>
-            {files.map(file => {
-              return <Link to={file.file.absolutePath}>file.text</Link>;
-            })}
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -107,13 +104,6 @@ export const pageQuery = graphql`
           text
           file {
             absolutePath
-          }
-        }
-        featuredimage {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
           }
         }
       }
