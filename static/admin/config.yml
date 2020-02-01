@@ -54,8 +54,8 @@ collections:
               widget: list,
               allow_add: true,
               fields:
-                - { label: Text, name: text, widget: string },
-                - { label: File, name: file, widget: file },
+                - { label: Text, name: text, widget: string }
+                - { label: File, name: file, widget: file }
             }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
