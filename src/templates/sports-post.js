@@ -91,8 +91,8 @@ SportsPost.propTypes = {
 export default SportsPost;
 
 export const pageQuery = graphql`
-  query SportsPostByID {
-    markdownRemark(id: { eq: "0a273a19-d5d6-59e2-b864-c952420ad475" }) {
+  query SportsPostByID($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
