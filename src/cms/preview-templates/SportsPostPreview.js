@@ -4,6 +4,7 @@ import { SportsPostTemplate } from "../../templates/sports-post";
 
 const SportsPostPreview = ({ entry, widgetFor }) => {
   const tags = entry.getIn(["data", "tags"]);
+  console.log(entry);
   return (
     <SportsPostTemplate
       content={widgetFor("body")}
