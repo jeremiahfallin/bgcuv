@@ -28,9 +28,13 @@ export const SportsPostTemplate = ({
             </h1>
             <p>{description}</p>
             <ul>
-              <li>
-                <Link to={files.file.absolutePath}>{files.text}</Link>
-              </li>
+              {files.map(file => {
+                return (
+                  <li>
+                    <Link to={file.absolutePath}>{file.text}</Link>
+                  </li>
+                );
+              })}
             </ul>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -63,6 +67,7 @@ SportsPostTemplate.propTypes = {
 
 const SportsPost = ({ data }) => {
   const { markdownRemark: post } = data;
+  console.log(post);
 
   return (
     <Layout>
@@ -105,13 +110,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
-        tags
         files {
           text
           file {
             absolutePath
           }
         }
+        tags
       }
     }
   }

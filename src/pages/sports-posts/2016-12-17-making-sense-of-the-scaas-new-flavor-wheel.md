@@ -7,8 +7,8 @@ description: >-
 featuredpost: false
 featuredimage: /img/flavor_wheel.jpg
 files:
-  file: /img/2020-Boys-3rd-4th-Grade-Basketball-Schedule.pdf
-  text: 2020 Boys 3rd/4th Grade Schedule
+  - file: /img/2020-Boys-3rd-4th-Grade-Basketball-Schedule.pdf
+    text: 2020 Boys 3rd/4th Grade Schedule
 tags:
   - sports
 ---

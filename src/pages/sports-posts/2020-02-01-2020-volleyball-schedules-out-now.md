@@ -8,8 +8,8 @@ description: >-
 featuredpost: false
 featuredimage: /img/blog-index.jpg
 files:
-  file: /img/2020-Boys-3rd-4th-Grade-Basketball-Schedule.pdf
-  text: 2020 Boys 3rd/4th Grade Schedule
+  - file: /img/2020-Boys-3rd-4th-Grade-Basketball-Schedule.pdf
+    text: 2020 Boys 3rd/4th Grade Schedule
 tags:
   - volleyball
 ---
