@@ -10,12 +10,13 @@ export const SportsPostTemplate = ({
   content,
   contentComponent,
   description,
+  files,
   tags,
   title,
   helmet
 }) => {
   const PostContent = contentComponent || Content;
-
+  console.log(files);
   return (
     <section className="section">
       {helmet || ""}
@@ -26,6 +27,9 @@ export const SportsPostTemplate = ({
               {title}
             </h1>
             <p>{description}</p>
+            {files.map(file => {
+              return <Link to={file.file.absolutePath}>file.text</Link>;
+            })}
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -63,6 +67,8 @@ const SportsPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        frontImage={post.frontmatter.frontImage}
+        files={post.frontmatter.files}
         helmet={
           <Helmet titleTemplate="%s | Sports">
             <title>{`${post.frontmatter.title}`}</title>
@@ -88,8 +94,8 @@ SportsPost.propTypes = {
 export default SportsPost;
 
 export const pageQuery = graphql`
-  query SportsPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query SportsPostByID {
+    markdownRemark(id: { eq: "0a273a19-d5d6-59e2-b864-c952420ad475" }) {
       id
       html
       frontmatter {
@@ -97,6 +103,19 @@ export const pageQuery = graphql`
         title
         description
         tags
+        files {
+          text
+          file {
+            absolutePath
+          }
+        }
+        featuredimage {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
