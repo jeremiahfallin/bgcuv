@@ -1,7 +1,7 @@
 ---
 templateKey: sports-post
 title: 2020 Volleyball Schedules Out Now!
-date: 2020-02-04T00:24:42.746Z
+date: 2020-02-01T00:24:42.746Z
 description: >-
   The 2020 BGCUV volleyball season is starting soon and below you can find the
   schedules for each team.
