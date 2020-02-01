@@ -27,6 +27,11 @@ export const SportsPostTemplate = ({
               {title}
             </h1>
             <p>{description}</p>
+            <ul>
+              <li>
+                <Link to={files.file.absolutePath}>{files.text}</Link>
+              </li>
+            </ul>
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -41,6 +46,7 @@ export const SportsPostTemplate = ({
               </div>
             ) : null}
           </div>
+          cons
         </div>
       </div>
     </section>

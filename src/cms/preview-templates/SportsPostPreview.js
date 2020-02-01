@@ -8,6 +8,7 @@ const SportsPostPreview = ({ entry, widgetFor }) => {
     <SportsPostTemplate
       content={widgetFor("body")}
       description={entry.getIn(["data", "description"])}
+      files={entry.getIn(["data", "files"])}
       tags={tags && tags.toJS()}
       title={entry.getIn(["data", "title"])}
     />
