@@ -51,7 +51,6 @@ export const SportsPostTemplate = ({
               </div>
             ) : null}
           </div>
-          cons
         </div>
       </div>
     </section>
