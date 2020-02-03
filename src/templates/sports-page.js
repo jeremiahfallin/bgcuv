@@ -9,6 +9,7 @@ import SportsPostsRoll from "../components/SportsPostsRoll";
 export const SportsPageTemplate = ({
   image,
   title,
+  intro,
   content,
   contentComponent
 }) => {
@@ -55,6 +56,18 @@ export const SportsPageTemplate = ({
             <div className="columns">
               <div className="column is-10 is-offset-1">
                 <div className="content">
+                  {intro && (
+                    <div className="content">
+                      <div className="tile">
+                        <h1 className="title">{intro ? intro.title : ""}</h1>
+                      </div>
+                      <div className="tile">
+                        <h3 className="subtitle">
+                          {intro ? intro.description : ""}
+                        </h3>
+                      </div>
+                    </div>
+                  )}
                   <div className="content">
                     <h3 className="has-text-weight-semibold is-size-2">
                       Latest Sports News
@@ -89,6 +102,7 @@ const SportsPage = ({ data }) => {
         image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
+        intro={frontmatter.intro}
         content={data.markdownRemark.html}
         contentComponent={HTMLContent}
       />
@@ -118,6 +132,10 @@ export const sportsPageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+        intro {
+          title
+          description
         }
         heading
       }
