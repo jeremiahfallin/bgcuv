@@ -55,11 +55,12 @@ export const SportsPageTemplate = ({
           <div className="section">
             <div className="columns">
               <div className="column is-10 is-offset-1">
+                {console.log(intro)}
                 <div className="content">
                   {intro && (
                     <div className="content">
                       <div className="tile">
-                        <h1 className="title">{intro ? intro.title : ""}</h1>
+                        <h1 className="title">{intro ? intro.heading : ""}</h1>
                       </div>
                       <div className="tile">
                         <h3 className="subtitle">
@@ -95,6 +96,7 @@ SportsPageTemplate.propTypes = {
 
 const SportsPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
+  console.log(frontmatter);
 
   return (
     <Layout>
@@ -134,7 +136,7 @@ export const sportsPageQuery = graphql`
           }
         }
         intro {
-          title
+          heading
           description
         }
         heading

@@ -3,7 +3,10 @@ templateKey: "sports-page"
 path: /sports
 title: BGCUV Sports Program
 image: /img/img_8685.jpg
-heading: Great coffee with a conscience
+intro:
+  heading: Roseburg Sports Program
+  description: >
+    For greater health.
 ---
 
 # Please note the insurance requirement:
