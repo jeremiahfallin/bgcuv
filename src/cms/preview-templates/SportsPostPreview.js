@@ -13,6 +13,7 @@ const SportsPostPreview = ({ entry, widgetFor }) => {
       files={files && files.toJS()}
       tags={tags && tags.toJS()}
       title={entry.getIn(["data", "title"])}
+      intro={entry.getIn(["data"]).toJS().intro || {}}
     />
   );
 };

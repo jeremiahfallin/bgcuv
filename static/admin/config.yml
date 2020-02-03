@@ -196,8 +196,18 @@ collections:
               widget: "hidden",
               default: "sports-page",
             }
+
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
-          - { label: Heading, name: heading, widget: string }
+          - {
+              label: Intro,
+              name: intro,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: description, widget: text },
+                ],
+            }
           - { label: "Body", name: "body", widget: "markdown" }
       
