@@ -174,18 +174,6 @@ collections:
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-      - file: "src/pages/trust/index.md"
-        label: "Trust Page"
-        name: "trust"
-        fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "trust-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
       - file: "src/pages/sports/index.md"
         label: "Sports Page"
         name: "sports"
