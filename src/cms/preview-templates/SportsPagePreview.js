@@ -9,6 +9,7 @@ const SportsPagePreview = ({ entry, widgetFor }) => {
       title={entry.getIn(["data", "title"])}
       heading={entry.getIn(["data", "heading"])}
       content={widgetFor("body")}
+      intro={entry.getIn(["data"]).toJS().intro || {}}
     />
   );
 };
