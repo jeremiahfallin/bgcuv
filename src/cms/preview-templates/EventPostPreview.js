@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { EventPostTemplate } from "../../templates/event-post";
 
 const EventPostPreview = ({ entry, widgetFor }) => {
+  console.log(entry);
   return (
     <EventPostTemplate
       content={widgetFor("body")}
