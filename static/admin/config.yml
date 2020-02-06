@@ -31,8 +31,8 @@ collections:
       - { label: "Featured Image", name: "featuredimage", widget: image }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
-  - name: "events"
-    label: "Events"
+  - name: "event-post"
+    label: "Event Posts"
     folder: "src/pages/event-posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
