@@ -10,10 +10,7 @@ import vimeo from "../img/social/vimeo.svg";
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer
-        className="footer has-text-black-ter"
-        style={{ backgroundColor: "#53565aaa" }}
-      >
+      <footer className="footer has-text-black-ter">
         <div className="content has-text-centered">
           <img
             src={logo}

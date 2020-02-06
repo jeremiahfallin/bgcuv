@@ -12,6 +12,14 @@
             "url": "/___graphql",
             "title": "GraphiQL"
           }
+        },
+        {
+          "id": "codesandbox.browser",
+          "options": {
+            "url": "/___graphql",
+            "title": "GraphiQL"
+          },
+          "closeable": true
         }
       ]
     },
