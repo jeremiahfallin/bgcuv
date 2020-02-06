@@ -4,7 +4,7 @@ import CMS from "netlify-cms-app";
 
 import AboutPagePreview from "./preview-templates/AboutPagePreview";
 import BlogPostPreview from "./preview-templates/BlogPostPreview";
-import EventsPagePreview from "./preview-templates/EventPagePreview";
+import EventsPagePreview from "./preview-templates/EventsPagePreview";
 import EventPostPreview from "./preview-templates/EventPostPreview";
 import IndexPagePreview from "./preview-templates/IndexPagePreview";
 import InfoPagePreview from "./preview-templates/InfoPagePreview";
