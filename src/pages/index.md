@@ -14,22 +14,22 @@ mainpitch:
     Since 2001, our programs have delivered  outcome-driven experiences that
     enrich kids’ lives by impacting  academic success, good character and
     citizenship, and healthy lifestyles.
-description: >-
+description: Welcome.
 intro:
   blurbs:
     - image: /img/coffee.png
-      text: >
+      text: '1'
     - image: /img/coffee-gear.png
-      text: >
+      text: '2'
     - image: /img/tutorials.png
-      text: >
+      text: '3'
     - image: /img/meeting-space.png
-      text: >
+      text: '4'
   heading: What we offer
-  description: >
+  description: '???'
 main:
   heading: Great coffee with no compromises
-  description: >
+  description: '??'
   image1:
     alt: A close-up of a paper filter filled with ground coffee
     image: /img/products-grid3.jpg
@@ -40,3 +40,4 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
+
