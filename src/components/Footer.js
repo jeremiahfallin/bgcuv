@@ -11,8 +11,8 @@ const Footer = class extends React.Component {
   render() {
     return (
       <footer
-        className="footer has-text-white-ter"
-        style={{ backgroundColor: "#53565a" }}
+        className="footer has-text-black-ter"
+        style={{ backgroundColor: "#53565aaa" }}
       >
         <div className="content has-text-centered">
           <img
@@ -21,8 +21,8 @@ const Footer = class extends React.Component {
             style={{ width: "auto", height: "8em" }}
           />
         </div>
-        <div className="content has-text-centered has-text-white-ter">
-          <div className="container has-text-white-ter">
+        <div className="content has-text-centered has-text-black-ter">
+          <div className="container has-text-black-ter">
             <div className="columns">
               <div className="column is-4">
                 <section className="menu">
