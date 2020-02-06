@@ -54,7 +54,6 @@ export const EventsPageTemplate = ({
           <div className="section">
             <div className="columns">
               <div className="column is-10 is-offset-1">
-                {console.log(intro)}
                 <div className="content">
                   {intro && (
                     <div className="content">
@@ -94,7 +93,6 @@ EventsPageTemplate.propTypes = {
 
 const EventsPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-  console.log(frontmatter);
 
   return (
     <Layout>

@@ -56,6 +56,7 @@ EventPostTemplate.propTypes = {
 
 const EventPost = ({ data }) => {
   const { markdownRemark: post } = data;
+  console.log(post);
 
   return (
     <Layout>
@@ -96,7 +97,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
-        tags
       }
     }
   }
