@@ -76,25 +76,29 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/sports">
                 Sports
               </Link>
+              <Link className="navbar-item" to="/events">
+                Events
+              </Link>
               <Link className="navbar-item" to="/blog">
                 Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
               </Link>
             </div>
             <div className="navbar-end has-text-centered">
               <div className="navbar-item">
-                <span role="img" aria-label="">
-                  📞
-                </span>{" "}
-                541.440.9505
+                <span className="icon is-small">
+                  <i
+                    className="fas fa-phone"
+                    data-fa-transform="flip-h"
+                    aria-hidden="true"
+                  />
+                </span>
+                <div className="container">541.440.9505</div>
               </div>
               <div className="navbar-item">
-                <span role="img" aria-label="">
-                  📍
-                </span>{" "}
-                1144 NE Cedar Street
+                <span className="icon is-small">
+                  <i className="fas fa-map-marker" aria-hidden="true" />
+                </span>
+                <div className="container">1144 NE Cedar Street</div>
               </div>
             </div>
           </div>

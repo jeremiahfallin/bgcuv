@@ -11,6 +11,10 @@ const TemplateWrapper = ({ children }) => {
   return (
     <div>
       <Helmet>
+        <script
+          defer
+          src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+        />
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
