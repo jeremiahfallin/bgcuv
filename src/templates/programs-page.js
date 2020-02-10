@@ -4,8 +4,14 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 
-export const ProgramsPageTemplate = ({ title, content, contentComponent }) => {
+export const ProgramsPageTemplate = ({
+  title,
+  content,
+  contentComponent,
+  toc
+}) => {
   const PageContent = contentComponent || Content;
+  const TOC = contentComponent || Content;
 
   return (
     <section className="section section--gradient">
@@ -13,6 +19,12 @@ export const ProgramsPageTemplate = ({ title, content, contentComponent }) => {
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <div className="section">
+              <div className="is-parent column is-6">
+                <div className="tile is-child box notification">
+                  <TOC className="content toc" content={toc} />
+                </div>
+                <div className="column" />
+              </div>
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h2>
@@ -40,6 +52,7 @@ const ProgramsPage = ({ data }) => {
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
+        toc={post.tableOfContents}
       />
     </Layout>
   );
@@ -58,6 +71,7 @@ export const programsPageQuery = graphql`
       frontmatter {
         title
       }
+      tableOfContents(absolute: true)
     }
   }
 `;

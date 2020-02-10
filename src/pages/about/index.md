@@ -8,7 +8,7 @@ title: Who We Are
 
 Our community is extremely fortunate to have a wonderful team of caring, dedicated, professional staff to mentor the next generation of leaders of our community.
 
-### Program Staff
+## Program Staff
 
 Kendra Wilson, Director of Operations – kwilson@bgcuv.org
 
@@ -18,11 +18,11 @@ Marcus Vela, Education Director – mvela@bgcuv.org
 
 Tanya Juarez, Teen Director – tjuarez@bgcuv.org
 
-### Sports
+## Sports
 
 Jordan Steele, Sports Director – jsteele@bgcuv.org
 
-### Administrative Staff
+## Administrative Staff
 
 Bryan Lake, Chief Executive Officer – blake@bgcuv.org
 
@@ -46,7 +46,7 @@ Vice President: Robin Sabala Johnson, Retired, International Paper
 
 Treasurer: Mike Watters, Partner, Watters + Fryer CPAs
 
-### Members at Large:
+## Members at Large
 
 Mark Agsten, Practice Manager, Family Tree Medical Center
 
@@ -78,7 +78,7 @@ Michele Torvik, Chief Operations Officer, ABCT Inc.
 
 Jim Treanor-Weaver, Certified Public Accountant, Wicks Emmett LLP
 
-### Emeritus Members:
+## Emeritus Members
 
 Ronnie Bruce, Owner, Bruce Properties
 

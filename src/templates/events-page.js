@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import EventsRoll from "../components/EventsRoll";
 
 export const EventsPageTemplate = ({
   image,
@@ -69,8 +70,9 @@ export const EventsPageTemplate = ({
                   )}
                   <div className="content">
                     <h3 className="has-text-weight-semibold is-size-2">
-                      Latest Sports News
+                      Current Events
                     </h3>
+                    <EventsRoll />
                   </div>
                   <div className="content">
                     <PostContent content={content} />
