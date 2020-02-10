@@ -1,8 +1,8 @@
 ---
-templateKey: "about-page"
-path: /about
+templateKey: about-page
 title: Who We Are
 image: /img/img_8685.jpg
+heading: This is BGCUV
 ---
 
 # Our Staff
