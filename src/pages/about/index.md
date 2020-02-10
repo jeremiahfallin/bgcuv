@@ -2,6 +2,7 @@
 templateKey: "about-page"
 path: /about
 title: Who We Are
+image: /img/img_8685.jpg
 ---
 
 # Our Staff
