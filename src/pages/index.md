@@ -3,18 +3,18 @@ templateKey: index-page
 title: Boys & Girls Club of the Umpqua Valley
 image: /img/img_8685.jpg
 heading: Great Futures Start Here
-subheading: Enriching the lives of Roseburg youth
+subheading: Changing lives one child at a time
 mainpitch:
   title: Mission
   description: >
     To inspire all young people, especially those who need us most,  to reach
-    their full potential as productive, caring, and responsible  citizens. The
-    Boys & Girls Club of the Umpqua Valley is a non-profit  organization serving
-    more than 1500 local youth entering 1st grade  through 12th grade annually.
-    Since 2001, our programs have delivered  outcome-driven experiences that
-    enrich kids’ lives by impacting  academic success, good character and
-    citizenship, and healthy lifestyles.
-description: Welcome.
+    their full potential as productive, caring, and responsible citizens. 
+description: >-
+  The Boys & Girls Club of the Umpqua Valley is a non-profit  organization
+  serving more than 1500 local youth entering 1st grade  through 12th grade
+  annually. Since 2001, our programs have delivered  outcome-driven experiences
+  that enrich kids’ lives by impacting  academic success, good character and
+  citizenship, and healthy lifestyles.
 intro:
   blurbs:
     - image: /img/coffee.png
