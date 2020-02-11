@@ -2,6 +2,8 @@
 templateKey: "involvement-page"
 path: /involvement
 title: Join our Team
+image: /img/img_8685.jpg
+heading: This is BGCUV
 ---
 
 ### Be Someone to Someone

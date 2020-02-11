@@ -2,6 +2,8 @@
 templateKey: "programs-page"
 path: /programs
 title: Programs involving our values
+image: /img/img_8685.jpg
+heading: This is BGCUV
 ---
 
 ### Shade-grown coffee

@@ -47,7 +47,7 @@ export const AboutPageTemplate = ({
               padding: "0.25em"
             }}
           >
-            {title}
+            {heading}
           </h1>
         </div>
       </div>
@@ -56,15 +56,15 @@ export const AboutPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="section">
+                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+                  {title}
+                </h2>
                 <div className="is-parent column is-6">
-                  <div className="tile is-child box notification">
+                  <div className="tile is-child">
                     <TOC className="content toc" content={toc} />
                   </div>
                   <div className="column" />
                 </div>
-                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                  {title}
-                </h2>
                 <PageContent className="content" content={content} />
               </div>
             </div>

@@ -5,9 +5,9 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
-import NewsRoll from "../components/NewsRoll";
 import EventsRoll from "../components/EventsRoll";
 import SportsPostsRoll from "../components/SportsPostsRoll";
+import DonationHero from "../components/DonationHero";
 
 export const IndexPageTemplate = ({
   image,
@@ -88,6 +88,7 @@ export const IndexPageTemplate = ({
                   </div>
                 </div>
                 <Features gridItems={intro.blurbs} />
+                <DonationHero />
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
                     Latest stories

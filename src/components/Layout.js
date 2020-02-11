@@ -53,6 +53,21 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <Navbar />
+      <div
+        style={{
+          position: "fixed",
+          bottom: "10px",
+          right: "20px",
+          zIndex: "1"
+        }}
+      >
+        <a
+          href="https://interland3.donorperfect.net/weblink/weblink.aspx?name=bgcumppqua&id=20"
+          className="button is-primary"
+        >
+          Donate
+        </a>
+      </div>
       <div>{children}</div>
       <Footer />
     </div>
