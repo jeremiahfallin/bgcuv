@@ -4,6 +4,7 @@ import CMS from "netlify-cms-app";
 
 import AboutPagePreview from "./preview-templates/AboutPagePreview";
 import BlogPostPreview from "./preview-templates/BlogPostPreview";
+import BoardPagePreview from "./preview-templates/BoardPagePreview";
 import EventsPagePreview from "./preview-templates/EventsPagePreview";
 import EventPostPreview from "./preview-templates/EventPostPreview";
 import IndexPagePreview from "./preview-templates/IndexPagePreview";
@@ -18,6 +19,7 @@ import SportsPostPreview from "./preview-templates/SportsPostPreview";
 
 CMS.registerPreviewTemplate("about", AboutPagePreview);
 CMS.registerPreviewTemplate("blog", BlogPostPreview);
+CMS.registerPreviewTemplate("board", BoardPagePreview);
 CMS.registerPreviewTemplate("events", EventsPagePreview);
 CMS.registerPreviewTemplate("events-post", EventPostPreview);
 CMS.registerPreviewTemplate("index", IndexPagePreview);

@@ -3,15 +3,14 @@ import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
 import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
-
 import Layout from "../components/Layout";
-import Hero from "../components/Hero";
 import Content, { HTMLContent } from "../components/Content";
 
-export const EventPostTemplate = ({
+export const BoardPostTemplate = ({
   content,
   contentComponent,
   description,
+  files,
   tags,
   title,
   helmet
@@ -28,6 +27,16 @@ export const EventPostTemplate = ({
               {title}
             </h1>
             <p>{description}</p>
+            <ul>
+              {files &&
+                files.map(file => {
+                  return (
+                    <li key={file.text}>
+                      <Link to={file.file.absolutePath}>{file.text}</Link>
+                    </li>
+                  );
+                })}
+            </ul>
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -48,7 +57,7 @@ export const EventPostTemplate = ({
   );
 };
 
-EventPostTemplate.propTypes = {
+BoardPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -56,18 +65,19 @@ EventPostTemplate.propTypes = {
   helmet: PropTypes.object
 };
 
-const EventPost = ({ data }) => {
+const BoardPost = ({ data }) => {
   const { markdownRemark: post } = data;
-  console.log(post);
 
   return (
     <Layout>
-      <EventPostTemplate
+      <BoardPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        frontImage={post.frontmatter.frontImage}
+        files={post.frontmatter.files}
         helmet={
-          <Helmet titleTemplate="%s | Event">
+          <Helmet titleTemplate="%s | Board">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
               name="description"
@@ -82,16 +92,16 @@ const EventPost = ({ data }) => {
   );
 };
 
-EventPost.propTypes = {
+BoardPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object
   })
 };
 
-export default EventPost;
+export default BoardPost;
 
 export const pageQuery = graphql`
-  query EventPostByID($id: String!) {
+  query BoardPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
@@ -99,6 +109,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        files {
+          text
+          file {
+            absolutePath
+          }
+        }
+        tags
       }
     }
   }
