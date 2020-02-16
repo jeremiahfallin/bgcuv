@@ -19,12 +19,8 @@ intro:
   blurbs:
     - image: /img/IMG_4648.jpg
       text: Check out our Club calendar.
-    - image: /img/coffee-gear.png
-      text: '2'
-    - image: /img/tutorials.png
-      text: '3'
-    - image: /img/meeting-space.png
-      text: '4'
+    - image: /img/IMG_0689.jpg
+      text: This is Summer Camps.
   heading: What we offer
   description: '???'
 main:
