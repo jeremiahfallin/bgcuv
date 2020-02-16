@@ -4,19 +4,8 @@ import { kebabCase } from "lodash";
 import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
 
-export const BoardPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  files,
-  tags,
-  title,
-  helmet
-}) => {
-  const PostContent = contentComponent || Content;
-
+export const BoardPostTemplate = ({ filesList, title, helmet }) => {
   return (
     <section className="section">
       {helmet || ""}
@@ -26,30 +15,31 @@ export const BoardPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <p>{description}</p>
             <ul>
-              {files &&
-                files.map(file => {
+              {filesList &&
+                filesList.map(files => {
                   return (
-                    <li key={file.text}>
-                      <Link to={file.file.absolutePath}>{file.text}</Link>
-                    </li>
+                    <div key={files.text}>
+                      <li>
+                        <b>
+                          <p>{files.text}</p>
+                        </b>
+                      </li>
+                      <ul>
+                        {files["files"].map(file => {
+                          return (
+                            <li key={file.text}>
+                              <Link to={file.file.absolutePath}>
+                                {file.text}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
                   );
                 })}
             </ul>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
           </div>
         </div>
       </div>
@@ -58,35 +48,25 @@ export const BoardPostTemplate = ({
 };
 
 BoardPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object
 };
 
 const BoardPost = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const {
+    markdownRemark: { frontmatter: post }
+  } = data;
 
   return (
     <Layout>
       <BoardPostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        frontImage={post.frontmatter.frontImage}
-        files={post.frontmatter.files}
+        filesList={post.filesList}
         helmet={
           <Helmet titleTemplate="%s | Board">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
+            <title>{`${post.title}`}</title>
           </Helmet>
         }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        title={post.title}
       />
     </Layout>
   );
@@ -103,19 +83,17 @@ export default BoardPost;
 export const pageQuery = graphql`
   query BoardPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      id
-      html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
-        description
-        files {
+        filesList {
           text
-          file {
-            absolutePath
+          files {
+            text
+            file {
+              absolutePath
+            }
           }
         }
-        tags
       }
     }
   }
