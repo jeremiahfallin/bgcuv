@@ -17,8 +17,8 @@ description: >-
   citizenship, and healthy lifestyles.
 intro:
   blurbs:
-    - image: /img/coffee.png
-      text: '1'
+    - image: /img/IMG_4648 - Reduced.jpg
+      text: Check out our Club calendar.
     - image: /img/coffee-gear.png
       text: '2'
     - image: /img/tutorials.png
