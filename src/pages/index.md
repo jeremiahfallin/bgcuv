@@ -21,6 +21,8 @@ intro:
       text: Check out our Club calendar.
     - image: /img/IMG_0689.jpg
       text: This is Summer Camps.
+    - image: /img/IMG_4678.jpg
+      text: Technology for all.
   heading: What we offer
   description: '???'
 main:
