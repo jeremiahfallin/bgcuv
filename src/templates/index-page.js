@@ -47,16 +47,17 @@ export const IndexPageTemplate = ({
                 <Features gridItems={intro.blurbs} />
                 <DonationHero />
                 <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
                   <h3 className="has-text-weight-semibold is-size-2">Events</h3>
                   <EventsRoll />
+                  <div className="column is-12 has-text-centered">
+                    <Link className="btn" to="/events">
+                      See all events
+                    </Link>
+                  </div>
                   <h3 className="has-text-weight-semibold is-size-2">Sports</h3>
                   <SportsPostsRoll />
                   <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
+                    <Link className="btn" to="/sports">
                       Read more
                     </Link>
                   </div>
@@ -133,7 +134,7 @@ export const pageQuery = graphql`
           blurbs {
             image {
               childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
+                fluid(maxWidth: 240, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
