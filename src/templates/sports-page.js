@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
+import Hero from "../components/Hero";
 import Content, { HTMLContent } from "../components/Content";
 import SportsPostsRoll from "../components/SportsPostsRoll";
 
@@ -16,40 +17,7 @@ export const SportsPageTemplate = ({
   const PostContent = contentComponent || Content;
   return (
     <div>
-      <div
-        className="full-width-image margin-top-0"
-        style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-          backgroundPosition: `top left`,
-          backgroundAttachment: `fixed`
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            height: "150px",
-            lineHeight: "1",
-            justifyContent: "space-around",
-            alignItems: "left",
-            flexDirection: "column"
-          }}
-        >
-          <h1
-            className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-            style={{
-              boxShadow: "#0081c6 0.5rem 0px 0px, #0081c6 -0.5rem 0px 0px",
-              backgroundColor: "#0081c6",
-              color: "white",
-              lineHeight: "1",
-              padding: "0.25em"
-            }}
-          >
-            {title}
-          </h1>
-        </div>
-      </div>
+      <Hero {...{ image, title }} />
       <section className="section section--gradient">
         <div className="container">
           <div className="section">
