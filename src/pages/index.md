@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Boys & Girls Club of the Umpqua Valley
-image: /img/IMG_4648.jpg
+image: /img/img_8685.jpg
 heading: Great Futures Start Here
 subheading: Changing lives one child at a time
 mainpitch:
