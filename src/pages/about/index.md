@@ -1,19 +1,8 @@
 ---
-templateKey: 'about-page'
-path: /about
-title: About our values
+templateKey: about-page
+title: Who We Are
+image: /img/img_8685.jpg
+heading: This is the BGCUV
+board: "# Our Board\r\n\r\nBoard President: Vicki Murray, Retired, Commercial Title Company\r\n\r\nImmediate Past President: Jill Weber, Principal, Roseburg High School\r\n\r\nPresident Elect: Stacey Crowe, FCC Commercial Furniture\r\n\r\nVice President: Robin Sabala Johnson, Retired, International Paper\r\n\r\nTreasurer: Mike Watters, Partner, Watters + Fryer CPAs\r\n\r\n## Members at Large\r\n\r\nMark Agsten, Practice Manager, Family Tree Medical Center\r\n\r\nMeredith Bliss, Cobb Childcare & School\r\n\r\nAmber Bowers, Co-Owner, Bowers Industrial Inc.\r\n\r\nRenée Coen, Retired\r\n\r\nGwen Soderberg-Chase, Douglas County Partners for Student Success\r\n\r\nKaren Kruse Corpron, Market Manager, Kruse Farms Market\r\n\r\nLance Colley, Retired, City Manager, City of Roseburg\r\n\r\nDori John, General Manager, Roseburg Disposal\r\n\r\nNikki Messenger, Public Works Director, City of Roseburg\r\n\r\nDerek Simmons, Attorney at Law, Watkinson Laird Rubenstein PC\r\n\r\nScott Stanley, Optometrist/Owner, New Visions Eye Care\r\n\r\nAli Spens, Umpqua Bank\r\n\r\nDebra Thatcher, President, Umpqua Community College\r\n\r\nMichele Torvik, Chief Operations Officer, ABCT Inc.\r\n\r\nJim Treanor-Weaver, Certified Public Accountant, Wicks Emmett LLP\r\n\r\n## Emeritus Members\r\n\r\nRonnie Bruce, Owner, Bruce Properties\r\n\r\nNeal Brown, Executive Vice President/Retail Manager, Umpqua Bank\r\n\r\nLonnie Rainville, Tribal Relations Officer, Cow Creek Band of Umpqua Tribe of Indians\r\n\r\nRon West, Retired, IBM"
+staff: "# Our Staff\r\n\r\nOur community is extremely fortunate to have a wonderful team of caring, dedicated, professional staff to mentor the next generation of leaders of our community.\r\n\r\n## Program Staff\r\n\r\nKendra Wilson, Director of Operations – kwilson@bgcuv.org\r\n\r\nRyan Rathbun, Unit Director – rrathbun@bgcuv.org\r\n\r\nMarcus Vela, Education Director – mvela@bgcuv.org\r\n\r\nTanya Juarez, Teen Director – tjuarez@bgcuv.org\r\n\r\n## Sports\r\n\r\nJordan Steele, Sports Director – jsteele@bgcuv.org\r\n\r\n## Administrative Staff\r\n\r\nBryan Lake, Chief Executive Officer – blake@bgcuv.org\r\n\r\nPatti LaFreniere, Development Director – plafreniere@bgcuv.org\r\n\r\nTricia Takahashi, Office Manager – ttakahashi@bgcuv.org\r\n\r\nMaria Castillo, Office Assistant – contactus@bgcuv.org\r"
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
-
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
-
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
-
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
-
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.

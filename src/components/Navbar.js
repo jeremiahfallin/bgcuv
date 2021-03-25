@@ -1,98 +1,227 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import React, { useState, useEffect } from "react";
+import { Link, graphql, useStaticQuery } from "gatsby";
+import netlifyIdentity from "netlify-identity-widget";
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
-    }
-  }
+import logo from "../img/BoysandGirlsLogoHorizontal.png";
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
+const Navbar = () => {
+  const [active, setActive] = useState(false);
+  const [selectedDropdown, setSelectedDropdown] = useState("");
+
+  useEffect(() => {
+    netlifyIdentity.init();
+  }, []);
+
+  const {
+    allMarkdownRemark: { edges: posts },
+  } = useStaticQuery(
+    graphql`
+      query DropdownQuery {
+        allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date] }
+          filter: { frontmatter: { templateKey: { regex: "/post/" } } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                active
+              }
+            }
+          }
+        }
       }
-    )
-  }
+    `
+  );
 
-  render() {
-    return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
+  const subNav = {};
+  subNav.programs = [
+    { slug: "/programs", title: "Programs Overview" },
+    { slug: "/summer", title: "Summer Programs" },
+    { slug: "/junior", title: "Junior Club" },
+    { slug: "/forms", title: "Club Forms" },
+  ];
+  subNav.about = [
+    { slug: "/about/safety", title: "Child Safety" },
+    { slug: "/about", title: "Who We Are" },
+  ];
+  subNav.sports = [];
+  subNav.events = [{ slug: "/partners", title: "Our Community Partners" }];
+  posts.forEach((post) => {
+    if (post.node.frontmatter.active) {
+      if (post.node.fields.slug.includes("sports")) {
+        subNav.sports.push({
+          slug: post.node.fields.slug,
+          title: post.node.frontmatter.title,
+        });
+      } else if (post.node.fields.slug.includes("event-posts")) {
+        subNav.events.push({
+          slug: post.node.fields.slug,
+          title: post.node.frontmatter.title,
+        });
+      }
+    }
+  });
+
+  return (
+    <nav
+      className="navbar is-transparent"
+      role="navigation"
+      aria-label="main-navigation"
+    >
+      <div className="container">
+        <div className="navbar-brand">
+          <Link to="/" className="navbar-item" title="Logo">
+            <img
+              src={logo}
+              alt="BGCUV"
+              style={{ height: "75px", width: "auto" }}
+            />
+          </Link>
+          {/* Hamburger menu */}
           <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`navbar-burger burger ${active ? "is-active" : ""}`}
+            data-target="navMenu"
+            onClick={() => setActive((a) => !a)}
           >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div>
+            <span />
+            <span />
+            <span />
           </div>
         </div>
-      </nav>
-    )
-  }
-}
+        <div
+          id="navMenu"
+          className={`navbar-menu ${active ? "is-active" : ""}`}
+          aria-label="dropdown navigation"
+        >
+          <div className="navbar-start has-text-centered">
+            <div
+              className={`navbar-item has-dropdown ${
+                selectedDropdown === "about" ? "is-active" : ""
+              }`}
+              onClick={(e) =>
+                setSelectedDropdown((prev) => (prev !== "about" ? "about" : ""))
+              }
+            >
+              <div to="/about" className={`navbar-link`}>
+                About
+              </div>
+              <div className="navbar-dropdown">
+                <Link to="/contact" className="navbar-item">
+                  Contact
+                </Link>
+                {subNav.about.map((link, index) => {
+                  return (
+                    <Link
+                      to={link.slug}
+                      className={`navbar-item`}
+                      key={"posts-subnav-link-" + index}
+                    >
+                      {link.title}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            <Link className="navbar-item" to="/involvement">
+              Get Involved
+            </Link>
+            <div
+              className={`navbar-item has-dropdown ${
+                selectedDropdown === "programs" ? "is-active" : ""
+              }`}
+              onClick={(e) =>
+                setSelectedDropdown((prev) =>
+                  prev !== "programs" ? "programs" : ""
+                )
+              }
+            >
+              <div className={`navbar-link`}>Programs</div>
+              <div className="navbar-dropdown">
+                {subNav.programs.map((link, index) => {
+                  return (
+                    <Link
+                      to={link.slug}
+                      className={`navbar-item`}
+                      key={"posts-subnav-link-" + index}
+                    >
+                      {link.title}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            <div
+              className={`navbar-item has-dropdown ${
+                selectedDropdown === "sports" ? "is-active" : ""
+              }`}
+              onClick={(e) =>
+                setSelectedDropdown((prev) =>
+                  prev !== "sports" ? "sports" : ""
+                )
+              }
+            >
+              <div to="/sports" className={`navbar-link`}>
+                Sports
+              </div>
+              <div className="navbar-dropdown">
+                <Link to="/sports" className="navbar-item">
+                  RSP Info
+                </Link>
+                {subNav.sports.map((link, index) => {
+                  return (
+                    <Link
+                      to={link.slug}
+                      className={`navbar-item`}
+                      key={"posts-subnav-link-" + index}
+                    >
+                      {link.title}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            <div
+              className={`navbar-item has-dropdown ${
+                selectedDropdown === "events" ? "is-active" : ""
+              }`}
+              onClick={(e) =>
+                setSelectedDropdown((prev) =>
+                  prev !== "events" ? "events" : ""
+                )
+              }
+            >
+              <div to="/events" className={`navbar-link`}>
+                Events
+              </div>
+              <div className="navbar-dropdown">
+                <Link to="/events" className="navbar-item">
+                  Event Info
+                </Link>
+                {subNav.events.map((link, index) => {
+                  return (
+                    <Link
+                      to={link.slug}
+                      className={`navbar-item`}
+                      key={"posts-subnav-link-" + index}
+                    >
+                      {link.title}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            <Link to="/at-home" className="navbar-item">
+              @ Home
+            </Link>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

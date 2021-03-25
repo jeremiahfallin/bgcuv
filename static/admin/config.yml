@@ -2,30 +2,121 @@ backend:
   name: git-gateway
   branch: master
   commit_messages:
-    create: 'Create {{collection}} “{{slug}}”'
-    update: 'Update {{collection}} “{{slug}}”'
-    delete: 'Delete {{collection}} “{{slug}}”'
-    uploadMedia: '[skip ci] Upload “{{path}}”'
-    deleteMedia: '[skip ci] Delete “{{path}}”'
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
 
 media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+  - name: "at-home-post"
+    label: "At Home Post"
+    folder: "src/pages/at-home-posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
-      - {label: "Featured Image", name: "featuredimage", widget: image}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "at-home-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Active Post", name: "active", widget: "boolean" }
+      - {
+          label: Videos,
+          name: videos,
+          widget: list,
+          allow_add: true,
+          fields:
+            [
+              { label: Text, name: text, widget: string },
+              { label: Video, name: video, widget: string },
+            ],
+        }
+      - {
+          label: Files,
+          name: files,
+          widget: list,
+          allow_add: true,
+          fields:
+            [
+              { label: Text, name: text, widget: string },
+              { label: File, name: file, widget: file },
+            ],
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "select",
+          multiple: true,
+          min: 1,
+          options:
+            [
+              "Educational Success & Power Hour",
+              "Sports & Fitness",
+              "S.T.E.A.M. & Arts",
+              "Games & Recreation",
+              "Healthy Lifestyles",
+            ],
+        }
+  - name: "event-post"
+    label: "Event Posts"
+    folder: "src/pages/event-posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "event-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Active Post", name: "active", widget: "boolean" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "sports-post"
+    label: "Sports Post"
+    folder: "src/pages/sports-posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "sports-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
+      - { label: "Active Post", name: "active", widget: "boolean" }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - {
+          label: Files,
+          name: files,
+          widget: list,
+          allow_add: true,
+          fields:
+            [
+              { label: Text, name: text, widget: string },
+              { label: File, name: file, widget: file },
+            ],
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
 
   - name: "pages"
     label: "Pages"
@@ -34,33 +125,407 @@ collections:
         label: "Landing Page"
         name: "index"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "index-page",
+            }
+          - { label: Title, name: title, widget: string, required: false }
+          - { label: Image, name: image, widget: image }
+          - { label: Heading, name: heading, widget: string, required: false }
+          - {
+              label: Subheading,
+              name: subheading,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Mainpitch,
+              name: mainpitch,
+              widget: object,
+              fields:
+                [
+                  {
+                    label: Title,
+                    name: title,
+                    widget: string,
+                    required: false,
+                  },
+                  {
+                    label: Description,
+                    name: description,
+                    widget: text,
+                    required: false,
+                  },
+                ],
+            }
+          - { label: Description, name: description, widget: string }
+          - {
+              label: Intro,
+              name: intro,
+              widget: object,
+              fields:
+                [
+                  {
+                    label: Stats,
+                    name: stats,
+                    widget: list,
+                    allow_add: false,
+                    delete: false,
+                    fields:
+                      [
+                        {
+                          label: Percent,
+                          name: percent,
+                          widget: number,
+                          min: 0,
+                          max: 100,
+                        },
+                        { label: Text, name: text, widget: text },
+                      ],
+                  },
+                ],
+            }
+
+      - file: "src/pages/at-home/index.md"
+        label: "At Home Page"
+        name: "at-home"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "at-home-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - {
+              label: Intro,
+              name: intro,
+              widget: object,
+              fields: [{ label: Description, name: description, widget: text }],
+            }
+          - { label: "Body", name: "body", widget: "markdown" }
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/products/index.md"
-        label: "Products Page"
-        name: "products"
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "about-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: Image, name: image, widget: image }
+          - { label: Heading, name: heading, widget: string }
+          - { label: "Board", name: "board", widget: "markdown" }
+          - { label: "Staff", name: "staff", widget: "markdown" }
+      - file: "src/pages/board/index.md"
+        label: "Board Page"
+        name: "board"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
-          - {label: Full_image, name: full_image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "board-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - {
+              label: Files List,
+              name: filesList,
+              widget: list,
+              allow_add: true,
+              fields:
+                [
+                  { label: Text, name: text, widget: string },
+                  {
+                    label: Files,
+                    name: files,
+                    widget: list,
+                    allow_add: true,
+                    fields:
+                      [
+                        { label: Text, name: text, widget: text },
+                        { label: File, name: file, widget: file },
+                      ],
+                  },
+                ],
+            }
+      - file: "src/pages/events/index.md"
+        label: "Events Page"
+        name: "events"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "events-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }
+          - {
+              label: Intro,
+              name: intro,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Description, name: description, widget: text },
+                ],
+            }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/forms/index.md"
+        label: "Forms Page"
+        name: "forms"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "forms-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: Files List,
+              name: filesList,
+              widget: list,
+              allow_add: true,
+              fields:
+                [
+                  { label: Text, name: text, widget: string },
+                  {
+                    label: Files,
+                    name: files,
+                    widget: list,
+                    allow_add: true,
+                    fields:
+                      [
+                        { label: Text, name: text, widget: text },
+                        { label: File, name: file, widget: file },
+                      ],
+                  },
+                ],
+            }
+      - file: "src/pages/involvement/index.md"
+        label: "Involvement"
+        name: "involvement"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "involvement-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: Image, name: image, widget: image }
+          - { label: Heading, name: heading, widget: string }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: Files List,
+              name: filesList,
+              widget: list,
+              allow_add: true,
+              fields:
+                [
+                  { label: Text, name: text, widget: string },
+                  {
+                    label: Files,
+                    name: files,
+                    widget: list,
+                    allow_add: true,
+                    fields:
+                      [
+                        { label: Text, name: text, widget: text },
+                        { label: File, name: file, widget: file },
+                      ],
+                  },
+                ],
+            }
+      - file: "src/pages/junior/index.md"
+        label: "Junior Club Page"
+        name: "junior"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "junior-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: Files List,
+              name: filesList,
+              widget: list,
+              allow_add: true,
+              fields:
+                [
+                  { label: Text, name: text, widget: string },
+                  {
+                    label: Files,
+                    name: files,
+                    widget: list,
+                    allow_add: true,
+                    fields:
+                      [
+                        { label: Text, name: text, widget: text },
+                        { label: File, name: file, widget: file },
+                      ],
+                  },
+                ],
+            }
+      - file: "src/pages/partners/index.md"
+        label: "Partners Page"
+        name: "partners"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "partners-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }
+          - {
+              label: Intro,
+              name: intro,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Description, name: description, widget: text },
+                ],
+            }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/programs/index.md"
+        label: "Programs"
+        name: "programs"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "programs-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: Image, name: image, widget: image }
+          - { label: Heading, name: heading, widget: string }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/sports/index.md"
+        label: "Sports Page"
+        name: "sports"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "sports-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }
+          - {
+              label: Intro,
+              name: intro,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Description, name: description, widget: text },
+                ],
+            }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/summer/index.md"
+        label: "Summer Page"
+        name: "summer"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "summer-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: Files List,
+              name: filesList,
+              widget: list,
+              allow_add: true,
+              fields:
+                [
+                  { label: Text, name: text, widget: string },
+                  {
+                    label: Files,
+                    name: files,
+                    widget: list,
+                    allow_add: true,
+                    fields:
+                      [
+                        { label: Text, name: text, widget: text },
+                        { label: File, name: file, widget: file },
+                      ],
+                  },
+                ],
+            }
+      - file: "src/pages/contact/index.md"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "contact-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - {
+              label: "Address",
+              name: "address",
+              widget: "list",
+              allow_add: false,
+              fields:
+                [
+                  { label: Address, name: address, widget: string },
+                  { label: URL, name: url, widget: string },
+                ],
+            }
+          - {
+              label: Email List,
+              name: emailList,
+              widget: list,
+              allow_add: true,
+              fields:
+                [
+                  { label: Text, name: text, widget: string },
+                  { label: Email, name: email, widget: string },
+                ],
+            }
+      - file: "src/pages/covid/index.md"
+        label: "Covid"
+        name: "covid"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "covid-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+          label: Files,
+          name: files,
+          widget: list,
+          allow_add: true,
+          fields:
+            [
+              { label: Text, name: text, widget: string },
+              { label: File, name: file, widget: file },
+            ],
+        }
+        
