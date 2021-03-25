@@ -9,7 +9,9 @@ const Navbar = () => {
   const [selectedDropdown, setSelectedDropdown] = useState("");
 
   useEffect(() => {
-    netlifyIdentity.init();
+    if (window !== "undefined") {
+      netlifyIdentity.init();
+    }
   }, []);
 
   const {
