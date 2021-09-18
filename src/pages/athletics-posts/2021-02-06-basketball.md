@@ -1,5 +1,5 @@
 ---
-templateKey: sports-post
+templateKey: athletics-post
 title: 🏀 Basketball
 date: 2021-02-06T01:19:42.815Z
 description: Basketball page

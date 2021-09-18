@@ -102,16 +102,16 @@ collections:
       - label: Body
         name: body
         widget: markdown
-  - name: sports-post
-    label: Sports Post
-    folder: src/pages/sports-posts
+  - name: athletics-post
+    label: Athletics Post
+    folder: src/pages/athletics-posts
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
       - label: Template Key
         name: templateKey
         widget: hidden
-        default: sports-post
+        default: athletics-post
       - label: Title
         name: title
         widget: string
@@ -459,14 +459,14 @@ collections:
           - label: Body
             name: body
             widget: markdown
-      - file: src/pages/sports/index.md
-        label: Sports Page
-        name: sports
+      - file: src/pages/athletics/index.md
+        label: Athletics Page
+        name: athletics
         fields:
           - label: Template Key
             name: templateKey
             widget: hidden
-            default: sports-page
+            default: athletics-page
           - label: Title
             name: title
             widget: string

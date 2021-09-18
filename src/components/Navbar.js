@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
-import netlifyIdentity from "netlify-identity-widget";
+import React, { useState, useEffect } from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
+import netlifyIdentity from 'netlify-identity-widget';
 
-import logo from "../img/BoysandGirlsLogoHorizontal.png";
+import logo from '../img/BoysandGirlsLogoHorizontal.png';
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
-  const [selectedDropdown, setSelectedDropdown] = useState("");
+  const [selectedDropdown, setSelectedDropdown] = useState('');
 
   useEffect(() => {
-    if (window !== "undefined") {
+    if (window !== 'undefined') {
       netlifyIdentity.init();
     }
   }, []);
@@ -41,25 +41,25 @@ const Navbar = () => {
 
   const subNav = {};
   subNav.programs = [
-    { slug: "/programs", title: "Programs Overview" },
-    { slug: "/summer", title: "Summer Programs" },
-    { slug: "/junior", title: "Junior Club" },
-    { slug: "/forms", title: "Club Forms" },
+    { slug: '/programs', title: 'Programs Overview' },
+    { slug: '/summer', title: 'Summer Programs' },
+    { slug: '/junior', title: 'Junior Club' },
+    { slug: '/forms', title: 'Club Forms' },
   ];
   subNav.about = [
-    { slug: "/about/safety", title: "Child Safety" },
-    { slug: "/about", title: "Who We Are" },
+    { slug: '/about/safety', title: 'Child Safety' },
+    { slug: '/about', title: 'Who We Are' },
   ];
-  subNav.sports = [];
-  subNav.events = [{ slug: "/partners", title: "Our Community Partners" }];
+  subNav.athletics = [];
+  subNav.events = [{ slug: '/partners', title: 'Our Community Partners' }];
   posts.forEach((post) => {
     if (post.node.frontmatter.active) {
-      if (post.node.fields.slug.includes("sports")) {
-        subNav.sports.push({
+      if (post.node.fields.slug.includes('athletics')) {
+        subNav.athletics.push({
           slug: post.node.fields.slug,
           title: post.node.frontmatter.title,
         });
-      } else if (post.node.fields.slug.includes("event-posts")) {
+      } else if (post.node.fields.slug.includes('event-posts')) {
         subNav.events.push({
           slug: post.node.fields.slug,
           title: post.node.frontmatter.title,
@@ -80,12 +80,12 @@ const Navbar = () => {
             <img
               src={logo}
               alt="BGCUV"
-              style={{ height: "75px", width: "auto" }}
+              style={{ height: '75px', width: 'auto' }}
             />
           </Link>
           {/* Hamburger menu */}
           <div
-            className={`navbar-burger burger ${active ? "is-active" : ""}`}
+            className={`navbar-burger burger ${active ? 'is-active' : ''}`}
             data-target="navMenu"
             onClick={() => setActive((a) => !a)}
           >
@@ -96,16 +96,16 @@ const Navbar = () => {
         </div>
         <div
           id="navMenu"
-          className={`navbar-menu ${active ? "is-active" : ""}`}
+          className={`navbar-menu ${active ? 'is-active' : ''}`}
           aria-label="dropdown navigation"
         >
           <div className="navbar-start has-text-centered">
             <div
               className={`navbar-item has-dropdown ${
-                selectedDropdown === "about" ? "is-active" : ""
+                selectedDropdown === 'about' ? 'is-active' : ''
               }`}
               onClick={(e) =>
-                setSelectedDropdown((prev) => (prev !== "about" ? "about" : ""))
+                setSelectedDropdown((prev) => (prev !== 'about' ? 'about' : ''))
               }
             >
               <div to="/about" className={`navbar-link`}>
@@ -120,7 +120,7 @@ const Navbar = () => {
                     <Link
                       to={link.slug}
                       className={`navbar-item`}
-                      key={"posts-subnav-link-" + index}
+                      key={'posts-subnav-link-' + index}
                     >
                       {link.title}
                     </Link>
@@ -133,11 +133,11 @@ const Navbar = () => {
             </Link>
             <div
               className={`navbar-item has-dropdown ${
-                selectedDropdown === "programs" ? "is-active" : ""
+                selectedDropdown === 'programs' ? 'is-active' : ''
               }`}
               onClick={(e) =>
                 setSelectedDropdown((prev) =>
-                  prev !== "programs" ? "programs" : ""
+                  prev !== 'programs' ? 'programs' : ''
                 )
               }
             >
@@ -148,7 +148,7 @@ const Navbar = () => {
                     <Link
                       to={link.slug}
                       className={`navbar-item`}
-                      key={"posts-subnav-link-" + index}
+                      key={'posts-subnav-link-' + index}
                     >
                       {link.title}
                     </Link>
@@ -158,27 +158,27 @@ const Navbar = () => {
             </div>
             <div
               className={`navbar-item has-dropdown ${
-                selectedDropdown === "sports" ? "is-active" : ""
+                selectedDropdown === 'athletics' ? 'is-active' : ''
               }`}
               onClick={(e) =>
                 setSelectedDropdown((prev) =>
-                  prev !== "sports" ? "sports" : ""
+                  prev !== 'athletics' ? 'athletics' : ''
                 )
               }
             >
-              <div to="/sports" className={`navbar-link`}>
-                Sports
+              <div to="/athletics" className={`navbar-link`}>
+                Athletics
               </div>
               <div className="navbar-dropdown">
-                <Link to="/sports" className="navbar-item">
-                  RSP Info
+                <Link to="/athletics" className="navbar-item">
+                  BGCUV Athletics Info
                 </Link>
-                {subNav.sports.map((link, index) => {
+                {subNav.athletics.map((link, index) => {
                   return (
                     <Link
                       to={link.slug}
                       className={`navbar-item`}
-                      key={"posts-subnav-link-" + index}
+                      key={'posts-subnav-link-' + index}
                     >
                       {link.title}
                     </Link>
@@ -188,11 +188,11 @@ const Navbar = () => {
             </div>
             <div
               className={`navbar-item has-dropdown ${
-                selectedDropdown === "events" ? "is-active" : ""
+                selectedDropdown === 'events' ? 'is-active' : ''
               }`}
               onClick={(e) =>
                 setSelectedDropdown((prev) =>
-                  prev !== "events" ? "events" : ""
+                  prev !== 'events' ? 'events' : ''
                 )
               }
             >
@@ -208,7 +208,7 @@ const Navbar = () => {
                     <Link
                       to={link.slug}
                       className={`navbar-item`}
-                      key={"posts-subnav-link-" + index}
+                      key={'posts-subnav-link-' + index}
                     >
                       {link.title}
                     </Link>

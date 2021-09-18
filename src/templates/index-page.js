@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, graphql } from 'gatsby';
 
-import Layout from "../components/Layout";
-import Hero from "../components/Hero";
-import Features from "../components/Features";
-import EventsRoll from "../components/EventsRoll";
-import SportsPostsRoll from "../components/SportsPostsRoll";
+import Layout from '../components/Layout';
+import Hero from '../components/Hero';
+import Features from '../components/Features';
+import EventsRoll from '../components/EventsRoll';
+import SportsPostsRoll from '../components/SportsPostsRoll';
 
 export const IndexPageTemplate = ({
   image,
@@ -23,7 +23,8 @@ export const IndexPageTemplate = ({
       <div className="container">
         <div className="section">
           <div className="columns">
-            <div className="column is-10 is-offset-1">
+            <div class="mailmunch-forms-widget-1048136"></div>
+            <div className="column is-9">
               <div className="content">
                 <div className="content">
                   <div className="tile">

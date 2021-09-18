@@ -1,26 +1,26 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { SportsPageTemplate } from "../../templates/sports-page";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { AthleticsPageTemplate } from '../../templates/athletics-page';
 
-const SportsPagePreview = ({ entry, getAsset, widgetFor }) => {
-  const data = entry.getIn(["data"]).toJS();
+const AthleticsPagePreview = ({ entry, getAsset, widgetFor }) => {
+  const data = entry.getIn(['data']).toJS();
   console.log(getAsset(data.image));
   return (
-    <SportsPageTemplate
+    <AthleticsPageTemplate
       image={getAsset(data.image)}
-      title={entry.getIn(["data", "title"])}
-      heading={entry.getIn(["data", "heading"])}
-      content={widgetFor("body")}
-      intro={entry.getIn(["data"]).toJS().intro || {}}
+      title={entry.getIn(['data', 'title'])}
+      heading={entry.getIn(['data', 'heading'])}
+      content={widgetFor('body')}
+      intro={entry.getIn(['data']).toJS().intro || {}}
     />
   );
 };
 
-SportsPagePreview.propTypes = {
+AthleticsPagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   getAsset: PropTypes.func,
 };
 
-export default SportsPagePreview;
+export default AthleticsPagePreview;
